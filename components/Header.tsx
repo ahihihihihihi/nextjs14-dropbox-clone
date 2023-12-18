@@ -2,6 +2,7 @@ import { SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { ThemeToggler } from "./ThemeToggler";
 
 const Header = () => {
 
@@ -22,12 +23,13 @@ const Header = () => {
             </Link>
             <div className="px-5 flex space-x-2 items-center">
                 {/* theme toggler */}
+                <ThemeToggler />
 
                 <UserButton afterSignOutUrl="/" />
 
-                <Button variant={"outline"}>
+                {/* <Button variant={"outline"}>
                     Button
-                </Button>
+                </Button> */}
 
                 <SignedOut>
                     <SignInButton afterSignInUrl={"/dashboard"} mode="modal" />
