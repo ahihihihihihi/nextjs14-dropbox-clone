@@ -7,6 +7,7 @@ import { useUser } from '@clerk/nextjs';
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { db, storage } from '@/firebase';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import toast from 'react-hot-toast';
 
 
 const DropZone = () => {
@@ -34,6 +35,8 @@ const DropZone = () => {
 
 
         setLoading(true)
+        const toastId = toast.loading("Uploading...")
+
 
         // addDoc -> users/user12345/files
         const docRef = await addDoc(collection(db, "users", user.id, "files"), {
@@ -55,6 +58,10 @@ const DropZone = () => {
                 downloadURL: downloadURL
             })
 
+        })
+
+        toast.success("Uploaded Successfully", {
+            id: toastId,
         })
 
         setLoading(false)
