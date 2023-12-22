@@ -44,7 +44,7 @@ function RenameModal() {
     }
 
     return (
-        <div>
+        <>
             <Dialog
                 open={isRenameModalOpen}
                 onOpenChange={((isOpen) => {
@@ -88,7 +88,7 @@ function RenameModal() {
                 </DialogContent >
             </Dialog >
 
-        </div >
+        </ >
     )
 }
 export default RenameModal
